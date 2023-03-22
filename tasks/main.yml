@@ -1,0 +1,17 @@
+# file: roles/tasks/main.yml
+# synopsis: 
+---
+- name: Upgrade installed Debian packages
+  block:
+    - name: Upgrade all packages to the latest version
+      apt:
+        name: '*'
+        state: latest
+        update_cache: yes
+      register: apt_result
+      until: "apt_result is not failed"
+      retries: 10
+      delay: 10
+  rescue:
+  - ansible.builtin.shell: |
+      dpkg --configure -a
