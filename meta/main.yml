@@ -1,0 +1,18 @@
+# file: meta/main.yml
+# synopsis: upgrade installed Debian packages with error handling
+---
+galaxy_info:
+  role_name: debian_upgrader
+  author: crazyelectron-io
+  description: Upgrade installed Debian packages with error hanbdling
+  company: 'clouds+more'
+  license: license (GPLv3)
+  min_ansible_version: '2.9'
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+  galaxy_tags:
+    - debian
+
+dependencies: []
